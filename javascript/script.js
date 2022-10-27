@@ -21,6 +21,8 @@ const easyDifficulty = document.querySelector('.difficulty-buttons .one');
 const hardDifficulty = document.querySelector('.difficulty-buttons .two');
 const rulesImageElement = document.querySelector('.rules-image');
 const headingLogo = document.querySelector('.heading-logo');
+const userWinBackground = document.querySelector('.user-pick-container .win-background');
+const computerWinBackground= document.querySelector('.computer-pick-container .win-background');
 
 //Initializing variables
 let userChoice;
@@ -70,16 +72,22 @@ function removeResultImage() {
 function userWin() {
     result.textContent = 'You Win';
     displayChoiceImage();
+    userWinBackground.style.display = 'block';
+    computerWinBackground.style.display = 'none';
 }
 
 function userLose() {
     result.textContent = 'You Lose';
     displayChoiceImage();
+    computerWinBackground.style.display = 'block';
+    userWinBackground.style.display = 'none';
 }
 
 function draw() {
     result.textContent = 'Draw';
     displayChoiceImage();
+    computerWinBackground.style.display = 'none';
+    userWinBackground.style.display = 'none';
 }
 
 // Original Game logic
