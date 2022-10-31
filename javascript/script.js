@@ -87,6 +87,11 @@ function showWinBackground(winner) {
     }
 }
 
+function removeWinBackground() {
+    computerWinBackground.style.display = 'none';
+    userWinBackground.style.display = 'none';
+}
+
 function showResult(winner) {
     resultBox.style.display = 'flex';
     if (winner === 'user') {
@@ -265,7 +270,8 @@ lizardElement.addEventListener('click', () => {
 //Play again Button
 playAgainButton.addEventListener('click', () => {
     body.classList.remove('game-finished');
-    removeResultImage()
+    removeResultImage();
+    removeWinBackground();
 })
 
 // Difficulty
