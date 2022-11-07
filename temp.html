@@ -26,17 +26,14 @@
     }
 
     let checkForWin = (choices) => {
-        for (const element of winConditions) {
-            if (isEqual(element, choices)) {
-                return true;
-            }
-        }
-        return false;
+       return winConditions.findIndex(element => element.join() === choices.join()) !== -1;
     }
 
-    let userChoice = 'paper';
-    let computerChoice = 'scissors';
+    let userChoice = 'scissors';
+    let computerChoice = 'paper';
     let choices = [userChoice, computerChoice];
+
+    console.log(checkForWin(choices));
 
     if (userChoice === computerChoice) {
         console.log('Draw');

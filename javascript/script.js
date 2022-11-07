@@ -1,10 +1,18 @@
 'use strict';
 
 // Data
-let winConditionsOriginal = [
+const winConditionsOriginal = [
     ['rock', 'scissors'],
     ['scissors', 'paper'],
     ['paper', 'rock'],
+]
+
+const winConditionsBonus = [
+    ['scissors', 'paper', 'lizard'],
+    ['paper', 'rock', 'spock'],
+    ['rock', 'lizard', 'scissors'],
+    ['lizard', 'spock', 'paper'],
+    ['spock', 'scissors', 'rock']
 ]
 
 let userChoice;
@@ -89,7 +97,7 @@ function showWinBackground(winner) {
     if (winner === 'user') {
         userWinBackground.style.display = 'block';
         computerWinBackground.style.display = 'none';
-    } else if (winner === 'computer'){
+    } else if (winner === 'computer') {
         computerWinBackground.style.display = 'block';
         userWinBackground.style.display = 'none';
     } else {
@@ -142,27 +150,23 @@ function draw() {
     showWinBackground('draw');
 }
 
-const isEqual = (arr1, arr2) => {
-    return arr1.join() === arr2.join();
+const checkWinOriginal = (choices) => {
+    return winConditionsOriginal.findIndex(element => element.join() === choices.join()) !== -1
 }
 
-let checkForWin = (choices) => {
-    for (const element of winConditions) {
-        if (isEqual(element, choices)) {
-            return true;
-        }
-    }
-    return false;
+const checkWinBonus = (choices) => {
+    const winConditionArray = winConditionsBonus.find(element => element[0] === choices[0]);
+    return choices.every(element => winConditionArray.includes(element));
 }
-
 
 // Original Game logic
 function originalGame() {
     computerChoice = computerChoiceGenerator('original');
     choices = [userChoice, computerChoice];
+
     if (userChoice === computerChoice) {
         draw();
-    } else if (checkForWin(choices)) {
+    } else if (checkWinOriginal(choices)) {
         incrementScore()
         userWin();
     } else {
@@ -171,56 +175,21 @@ function originalGame() {
     }
 }
 
-let winConditionsBonus = [
-     ['']
-]
-
 // Bonus Game Logic
 function bonusGame() {
     computerChoice = computerChoiceGenerator('bonus-game');
+    choices = [userChoice, computerChoice];
+
     if (userChoice === computerChoice) {
         draw();
-    } else if (userChoice === 'scissors') {
-        if (computerChoice === 'paper' || computerChoice === 'lizard') {
-            incrementScore();
-            userWin();
-        } else {
-            decrementScore();
-            userLose();
-        }
-    } else if (userChoice === 'paper') {
-        if (computerChoice === 'rock' || computerChoice === 'spock') {
-            incrementScore();
-            userWin();
-        } else {
-            decrementScore();
-            userLose();
-        }
-    } else if (userChoice === 'rock') {
-        if (computerChoice === 'lizard' || computerChoice === 'scissors') {
-            incrementScore();
-            userWin();
-        } else {
-            decrementScore();
-            userLose();
-        }
-    } else if (userChoice === 'lizard') {
-        if (computerChoice === 'spock' || computerChoice === 'paper') {
-            incrementScore();
-            userWin();
-        } else {
-            decrementScore();
-            userLose();
-        }
+    } else if (checkWinBonus(choices)) {
+        incrementScore();
+        userWin();
     } else {
-        if (computerChoice === 'scissor' || computerChoice === 'rock') {
-            incrementScore();
-            userWin();
-        } else {
-            decrementScore();
-            userLose();
-        }
+        decrementScore();
+        userLose();
     }
+
 }
 
 for (let paper of paperElement) {
