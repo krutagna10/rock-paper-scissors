@@ -3,32 +3,28 @@ import scissorsIcon from '../../assets/icon-scissors.svg';
 import rockIcon from '../../assets/icon-rock.svg';
 import './GameResult.css';
 
+const icons = {
+    paper: paperIcon,
+    scissors: scissorsIcon,
+    rock: rockIcon,
+}
 
-const GameResult = () => {
-    const icons = {
-        paper: paperIcon,
-        scissors: scissorsIcon,
-        rock: rockIcon,
+const GameResult = (props) => {
+    let resultText;
+    if (props.result === 'draw') {
+        resultText = 'draw';
+    } else if (props.result === 'win') {
+        resultText = 'You Win';
+    } else {
+        resultText = 'You Lose'
     }
-
-    const winConditions = [
-        ['rock', 'scissors'],
-        ['scissors', 'paper'],
-        ['paper', 'rock'],
-    ]
-
-
-    const checkForWin = (choices) => {
-        return winConditions.some(element => element.join('') === choices.join(''));
-    }
-
 
     return (
         <div className='result container grid'>
             <div className="result__user grid grid--gap">
-                <div className="result__icon-wrapper result__icon-wrapper--paper">
+                <div className={`result__icon-wrapper result__icon-wrapper--${props.userChoice}`}>
                     <img className="result__icon--user"
-                         src={icons.paper}
+                         src={icons[props.userChoice]}
                          alt="user choice"
                     />
                 </div>
@@ -36,14 +32,14 @@ const GameResult = () => {
             </div>
 
             <div className="result__description grid grid--content-center grid--gap">
-                <p className="result__text font-size-500 font-weight-bold">You Won</p>
-                <button className="result__btn btn btn--white">Play Again</button>
+                <p className="result__text font-size-500 font-weight-bold">{resultText}</p>
+                <button className="result__btn btn btn--white" onClick={props.onPlayAgain}>Play Again</button>
             </div>
 
             <div className="result__computer grid grid--gap">
-                <div className="result__icon-wrapper result__icon-wrapper--rock">
+                <div className={`result__icon-wrapper result__icon-wrapper--${props.computerChoice}`}>
                     <img className="result__icon--computer"
-                         src={icons.rock}
+                         src={icons[props.computerChoice]}
                          alt="computer choice"
                     />
                 </div>
