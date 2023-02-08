@@ -1,0 +1,45 @@
+.game-section {
+    min-height: 60vh;
+    display: grid;
+}
+
+/* Game and Result Backgrounds */
+.game__btn,
+.result__icon-wrapper {
+    background-color: var(--white);
+    border-radius: 50%;
+    display: grid;
+    place-content: center;
+    position: relative;
+    box-shadow: inset 0 7px 0 1px rgba(199, 199, 199, 0.71);
+}
+
+.game__btn::before,
+.result__icon-wrapper::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: 50%;
+    transform: scale(1.2);
+}
+
+.game__btn--paper::before,
+.result__icon-wrapper--paper::before {
+    background: var(--paper-gradient);
+    box-shadow: 0 6px 1px hsl(var(--blue), 0.5);
+}
+
+.game__btn--scissors::before,
+.result__icon-wrapper--scissors::before {
+    background: var(--scissors-gradient);
+    box-shadow: 0 6px 1px hsl(var(--yellow), 0.5);
+}
+
+.game__btn--rock::before,
+.result__icon-wrapper--rock::before {
+    background: var(--rock-gradient);
+    box-shadow: 0 6px 1px hsl(var(--red), 0.5);
+}
+
+
