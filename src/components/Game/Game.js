@@ -3,7 +3,7 @@ import './Game.css';
 import GameResult from "./GameResult";
 import {useState} from "react";
 
-const Game = () => {
+const Game = (props) => {
     const [userChoice, setUserChoice] = useState('');
     const [computerChoice, setComputerChoice] = useState('');
     const [gameFinished, setGameFinished] = useState(false);
@@ -29,10 +29,11 @@ const Game = () => {
 
     const setChoices = (userChoice, computerChoice) => {
         setUserChoice(userChoice);
-
         setComputerChoice(computerChoice);
+
         const gameResult = checkResult([userChoice, computerChoice]);
         setResult(gameResult);
+        props.onGameFinish(gameResult);
 
         setGameFinished(true);
     }

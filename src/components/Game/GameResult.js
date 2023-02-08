@@ -19,10 +19,18 @@ const GameResult = (props) => {
         resultText = 'You Lose'
     }
 
+    let userClassList = `result__icon-wrapper result__icon-wrapper--${props.userChoice}`;
+    let computerClassList = `result__icon-wrapper result__icon-wrapper--${props.computerChoice}`;
+    if (props.result === 'win') {
+        userClassList = userClassList + ' result__winner';
+    } else if (props.result === 'lose') {
+        computerClassList = computerClassList + ' result__winner';
+    }
+
     return (
         <div className='result container grid'>
             <div className="result__user grid grid--gap">
-                <div className={`result__icon-wrapper result__icon-wrapper--${props.userChoice}`}>
+                <div className={userClassList}>
                     <img className="result__icon--user"
                          src={icons[props.userChoice]}
                          alt="user choice"
@@ -37,7 +45,7 @@ const GameResult = (props) => {
             </div>
 
             <div className="result__computer grid grid--gap">
-                <div className={`result__icon-wrapper result__icon-wrapper--${props.computerChoice}`}>
+                <div className={computerClassList}>
                     <img className="result__icon--computer"
                          src={icons[props.computerChoice]}
                          alt="computer choice"
