@@ -8,6 +8,7 @@ const Game = (props) => {
     const [computerChoice, setComputerChoice] = useState('');
     const [gameFinished, setGameFinished] = useState(false);
     const [result, setResult] = useState('');
+    const [resultText, setResultText] = useState('');
 
     const checkResult = (choices) => {
         const winConditions = [
@@ -19,10 +20,13 @@ const Game = (props) => {
         const userWins = winConditions.some(element => element.join('') === choices.join(''));
 
         if (choices[0] === choices[1]) {
+            setResultText('Draw');
             return 'draw';
         } else if (userWins) {
+            setResultText('You Win');
             return 'win';
         } else {
+            setResultText('You Lose');
             return 'lose';
         }
     }
@@ -54,6 +58,7 @@ const Game = (props) => {
                     userChoice={userChoice}
                     computerChoice={computerChoice}
                     result={result}
+                    resultText={resultText}
                     onPlayAgain={playAgainHandler}
                 />
             )}

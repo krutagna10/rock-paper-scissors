@@ -10,17 +10,9 @@ const icons = {
 }
 
 const GameResult = (props) => {
-    let resultText;
-    if (props.result === 'draw') {
-        resultText = 'draw';
-    } else if (props.result === 'win') {
-        resultText = 'You Win';
-    } else {
-        resultText = 'You Lose'
-    }
-
     let userClassList = `result__icon-wrapper result__icon-wrapper--${props.userChoice}`;
     let computerClassList = `result__icon-wrapper result__icon-wrapper--${props.computerChoice}`;
+
     if (props.result === 'win') {
         userClassList = userClassList + ' result__winner';
     } else if (props.result === 'lose') {
@@ -40,7 +32,7 @@ const GameResult = (props) => {
             </div>
 
             <div className="result__description grid grid--content-center grid--gap">
-                <p className="result__text font-size-500 font-weight-bold">{resultText}</p>
+                <p className="result__text font-size-500 font-weight-bold">{props.resultText}</p>
                 <button className="result__btn btn btn--white" onClick={props.onPlayAgain}>Play Again</button>
             </div>
 
