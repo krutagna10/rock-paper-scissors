@@ -1,0 +1,24 @@
+.header-section {
+    padding: clamp(0.75rem, 1.6vw, 1.5rem);
+}
+
+.header {
+    max-width: 60rem;
+    border: 2px solid var(--header-outline);
+    padding: clamp(0.5rem, 2vw, 1rem);
+}
+
+.header__logo {
+     max-width: 90%;
+ }
+
+.header__score-wrapper {
+     padding: 0.6rem clamp(0.75rem, 3vw, 2rem);
+     border-radius: 0.25rem;
+ }
+
+@media (min-width: 32em) {
+    .header__logo {
+        max-width: 100%;
+    }
+}
