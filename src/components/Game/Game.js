@@ -31,7 +31,7 @@ const Game = (props) => {
         }
     }
 
-    const setChoices = (userChoice, computerChoice) => {
+    const setChoicesHandler = (userChoice, computerChoice) => {
         setUserChoice(userChoice);
         setComputerChoice(computerChoice);
 
@@ -50,7 +50,7 @@ const Game = (props) => {
         <section className='game-section grid grid--content-center'>
             {!gameFinished && (
                 <GameChoice
-                    onChoice={setChoices}
+                    onChoice={setChoicesHandler}
                 />
             )}
             {gameFinished && (

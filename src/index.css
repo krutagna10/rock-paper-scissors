@@ -129,6 +129,7 @@ body {
     padding-inline: 1rem;
 }
 
+/* Flex Layout */
 .flex {
     display: flex;
 }
@@ -158,6 +159,7 @@ body {
     flex-direction: column;
 }
 
+/* Grid Layout */
 .grid {
     display: grid;
 }
@@ -203,6 +205,7 @@ body {
     font-weight: var(--font-weight-bold);
 }
 
+/* Text Color */
 .text-dark-grey {
     color: var(--dark-grey);
 }
@@ -211,14 +214,7 @@ body {
     color: var(--dark-blue);
 }
 
-.letter-spacing-2 {
-    letter-spacing: var(--letter-spacing-2);
-}
-
-.letter-spacing-1 {
-    letter-spacing: var(--letter-spacing-1);
-}
-
+/* Backgrounds */
 .background-white {
     background-color: var(--white);
 }

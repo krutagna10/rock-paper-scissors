@@ -2,7 +2,9 @@
     gap: clamp(3rem, 6vw, 5rem);
     text-align: center;
     grid-auto-columns: 1fr;
-    grid-template-areas: "user computer" "description description";
+    grid-template-areas:
+            "user computer"
+            "description description";
 }
 
 .result__icon-wrapper {
@@ -41,6 +43,10 @@
 .result__description {
     grid-area: description;
     text-align: center;
+}
+
+.result__label {
+    letter-spacing: var(--letter-spacing-2);
 }
 
 .result__btn--play-again {

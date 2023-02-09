@@ -6,11 +6,13 @@ import {useState} from "react";
 const Rules = (props) => {
     const [showRules, setShowRules] = useState(false);
 
+    // When user clicks on rules button
     const showRulesHandler = () => {
         setShowRules(true);
         props.onOpen();
     }
 
+    // When user clicks on close button
     const hideRulesHandler = () => {
         setShowRules(false);
         props.onClose();
@@ -26,11 +28,14 @@ const Rules = (props) => {
                         </h1>
                         <img className="rules__modal-image"
                              src={rules}
-                             alt="Game rules"
+                             alt=""
+                             aria-hidden='true'
                         />
                         <button className="rules__modal-btn" onClick={hideRulesHandler}>
-                            <img src={closeIcon}
+                            <img className='rules__modal-close-icon'
+                                 src={closeIcon}
                                  alt=""
+                                 aria-hidden='true'
                             />
                         </button>
                     </div>

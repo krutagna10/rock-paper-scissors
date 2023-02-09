@@ -4,15 +4,19 @@ import rockIcon from '../../assets/icon-rock.svg';
 import './GameChoice.css';
 
 const GameChoice = (props) => {
+    // Function for getting computer choice
     const getComputerChoice = () => {
         const options = ['rock', 'paper', 'scissors'];
         const random = Math.floor(Math.random() * 3);
         return options[random];
     }
 
+    // Click Handler when the user clicks on any choice button
     const clickHandler = (event) => {
-        const userChoice = event.target.dataset.choice;
+        const userChoice = event.target.closest('.game__btn').dataset.choice;
         const computerChoice = getComputerChoice();
+
+        // Return user and computer choices to parent(Game)
         props.onChoice(userChoice, computerChoice);
     }
 
@@ -23,7 +27,6 @@ const GameChoice = (props) => {
                      src={paperIcon}
                      alt=""
                      aria-hidden="true"
-                     data-choice='paper'
                 />
             </button>
             <button className="game__btn game__btn--scissors" aria-label="scissors" data-choice="scissors" onClick={clickHandler}>
@@ -31,7 +34,6 @@ const GameChoice = (props) => {
                      src={scissorsIcon}
                      alt=""
                      aria-hidden="true"
-                     data-choice='scissors'
                 />
             </button>
             <button className="game__btn game__btn--rock" aria-label="rock" data-choice="rock" onClick={clickHandler}>
@@ -39,7 +41,6 @@ const GameChoice = (props) => {
                      src={rockIcon}
                      alt=""
                      aria-hidden="true"
-                     data-choice='rock'
                 />
             </button>
         </div>

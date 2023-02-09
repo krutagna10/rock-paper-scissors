@@ -9,29 +9,31 @@ function App() {
     const [score, setScore] = useState(0);
     const [showOverlay, setShowOverlay] = useState(false);
 
-    const gameFinishHandler = (result) => {
+    // Score Handler for incrementing and decrementing scores
+    const scoreHandler = (result) => {
         if (result === 'win') {
             setScore(prevState => prevState + 1);
         } else if (result === 'lose') {
             setScore(prevState => prevState - 1);
         }
-    }
+    };
 
-    const hideOverlayHandler = () => {
-        setShowOverlay(false);
-    }
-
+    // Function for showing overlay
     const showOverlayHandler = () => {
         setShowOverlay(true);
     }
 
+    // Function for Hiding Overlay
+    const hideOverlayHandler = () => {
+        setShowOverlay(false);
+    }
     return (
         <div className='app'>
             <Header
                 score={score}
             />
             <Game
-                onGameFinish={gameFinishHandler}
+                onGameFinish={scoreHandler}
             />
             <Rules
                 onOpen={showOverlayHandler}

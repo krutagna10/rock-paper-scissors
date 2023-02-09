@@ -12,7 +12,7 @@ const Header = (props) => {
                     />
                 </div>
                 <div className="header__score-wrapper grid grid--items-center background-white">
-                    <p className="header__score-label font-size-100 text-dark-blue letter-spacing-1">Score</p>
+                    <p className="header__score-label font-size-100 text-dark-blue">Score</p>
                     <p className="header__score font-size-600 text-dark-grey font-weight-bold">{props.score}</p>
                 </div>
             </header>

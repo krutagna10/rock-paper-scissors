@@ -28,7 +28,7 @@ const GameResult = (props) => {
                          alt="user choice"
                     />
                 </div>
-                <p className="result__label font-size-200 letter-spacing-2">You Picked</p>
+                <p className="result__label font-size-200">You Picked</p>
             </div>
 
             <div className="result__description grid grid--content-center grid--gap">
@@ -43,7 +43,7 @@ const GameResult = (props) => {
                          alt="computer choice"
                     />
                 </div>
-                <p className="result__label font-size-200 letter-spacing-2">The House Picked</p>
+                <p className="result__label font-size-200">The House Picked</p>
             </div>
         </div>
     )

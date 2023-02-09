@@ -17,6 +17,10 @@
      border-radius: 0.25rem;
  }
 
+.header__score-label {
+    letter-spacing: var(--letter-spacing-1);;
+}
+
 @media (min-width: 32em) {
     .header__logo {
         max-width: 100%;
