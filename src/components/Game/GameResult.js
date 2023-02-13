@@ -20,34 +20,32 @@ const GameResult = (props) => {
     }
 
     return (
-        <section className='result-section'>
-            <div className='result container grid'>
-                <div className="result__user grid grid--gap">
-                    <div className={userIconWrapperClass}>
-                        <img className="result__icon--user"
-                             src={icons[props.userChoice]}
-                             alt="user choice"
-                        />
-                    </div>
-                    <p className="result__label font-size-200">You Picked</p>
+        <div className='result container grid'>
+            <div className="result__user grid grid--gap">
+                <div className={userIconWrapperClass}>
+                    <img className="result__icon--user"
+                         src={icons[props.userChoice]}
+                         alt="user choice"
+                    />
                 </div>
-
-                <div className="result__description grid grid--content-center grid--gap">
-                    <p className="result__text font-size-500 font-weight-bold">{props.resultText}</p>
-                    <button className="result__btn btn btn--white" onClick={props.onPlayAgain}>Play Again</button>
-                </div>
-
-                <div className="result__computer grid grid--gap">
-                    <div className={computerIconWrapperClass}>
-                        <img className="result__icon--computer"
-                             src={icons[props.computerChoice]}
-                             alt="computer choice"
-                        />
-                    </div>
-                    <p className="result__label font-size-200">The House Picked</p>
-                </div>
+                <p className="result__label font-size-200">You Picked</p>
             </div>
-        </section>
+
+            <div className="result__description grid grid--content-center grid--gap">
+                <p className="result__text font-size-500 font-weight-bold">{props.resultText}</p>
+                <button className="result__btn btn btn--white" onClick={props.onPlayAgain}>Play Again</button>
+            </div>
+
+            <div className="result__computer grid grid--gap">
+                <div className={computerIconWrapperClass}>
+                    <img className="result__icon--computer"
+                         src={icons[props.computerChoice]}
+                         alt="computer choice"
+                    />
+                </div>
+                <p className="result__label font-size-200">The House Picked</p>
+            </div>
+        </div>
     )
 };
 
