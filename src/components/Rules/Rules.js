@@ -3,26 +3,39 @@ import rules from '../../assets/image-rules.svg';
 import closeIcon from '../../assets/icon-close.svg';
 import {useState} from "react";
 
-const Rules = (props) => {
+const Rules = () => {
     const [showRules, setShowRules] = useState(false);
+    const [showOverlay, setShowOverlay] = useState(false);
 
-    // When user clicks on rules button
+
+    // Function for showing rules and overlay
     const showRulesHandler = () => {
         setShowRules(true);
-        props.onOpen();
+        setShowOverlay(true);
     }
 
-    // When user clicks on close button
+    // Function for hiding rules and overlay
     const hideRulesHandler = () => {
         setShowRules(false);
-        props.onClose();
+        setShowOverlay(false);
     }
+
+    // When the user clicks escape-key
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            hideRulesHandler();
+        }
+    })
 
     return (
         <section className="rules-section">
             <div className="rules">
+                {showOverlay && (
+                    <div className='rules__overlay' onClick={hideRulesHandler}/>
+                )}
+
                 {showRules && (
-                    <div className="rules__modal background-white">
+                    <div className="rules__modal grid grid--items-center grid--gap background-white">
                         <h1 className="rules__modal-heading font-size-400 text-dark-grey font-weight-bold">
                             Rules
                         </h1>

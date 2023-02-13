@@ -22,21 +22,21 @@ const GameChoice = (props) => {
 
     return (
         <div className="game container grid">
-            <button className="game__btn game__btn--paper" aria-label="paper" data-choice="paper" onClick={clickHandler}>
+            <button className="game__btn icon-background icon-background--paper" aria-label="paper" data-choice="paper" onClick={clickHandler}>
                 <img className="game__icon"
                      src={paperIcon}
                      alt=""
                      aria-hidden="true"
                 />
             </button>
-            <button className="game__btn game__btn--scissors" aria-label="scissors" data-choice="scissors" onClick={clickHandler}>
+            <button className="game__btn icon-background icon-background--scissors" aria-label="scissors" data-choice="scissors" onClick={clickHandler}>
                 <img className="game__icon"
                      src={scissorsIcon}
                      alt=""
                      aria-hidden="true"
                 />
             </button>
-            <button className="game__btn game__btn--rock" aria-label="rock" data-choice="rock" onClick={clickHandler}>
+            <button className="game__btn icon-background icon-background--rock" aria-label="rock" data-choice="rock" onClick={clickHandler}>
                 <img className="game__icon"
                      src={rockIcon}
                      alt=""

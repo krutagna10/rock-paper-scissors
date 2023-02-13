@@ -21,21 +21,23 @@
 }
 
 .game__btn {
-    min-height: 6rem;
-    min-width: 6rem;
+    min-width: min(23.5vw, 9rem);
+    min-height: min(23.5vw, 9rem);
+    display: grid;
+    place-content: center;
     cursor: pointer;
     border: none;
 }
 
-.game__btn--paper {
+.game__btn:nth-child(1) {
     grid-area: paper;
 }
 
-.game__btn--scissors {
+.game__btn:nth-child(2) {
     grid-area: scissors;
 }
 
-.game__btn--rock {
+.game__btn:nth-child(3) {
     grid-area: rock;
     justify-self: center;
 }
@@ -54,6 +56,7 @@
     transform: scale(1.45);
 }
 
+/* Game Icon */
 .game__icon {
     transition: all 0.3s ease;
 }
@@ -62,16 +65,8 @@
     transform: scale(1.10);
 }
 
-@media (min-width: 32em) {
-    .game__btn {
-        min-height: 7rem;
-        min-width: 7rem;
-    }
-}
 
-@media (min-width: 48em) {
-    .game__btn {
-        min-height: 9rem;
-        min-width: 9em;
-    }
-}
+
+
+
+

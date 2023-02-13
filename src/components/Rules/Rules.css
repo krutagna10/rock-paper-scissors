@@ -1,11 +1,19 @@
-.rules__modal {
+/* Overlay */
+.rules__overlay {
     position: absolute;
-    z-index: 99;
-    display: grid;
-    place-items: center;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
-@media (max-width: 48em) {
+/* Rules Modal */
+.rules__modal {
+    --gap: 3.5rem;
+
+    position: absolute;
+    z-index: 99;
+}
+
+@media (max-width: 47.99em) {
     .rules__modal {
         inset: 0;
     }
@@ -22,7 +30,7 @@
     bottom: 5%;
 }
 
-@media (max-width: 48em) {
+@media (max-width: 47.99em) {
     .rules__btn {
         left: 50%;
         transform: translateX(-50%);
@@ -33,7 +41,6 @@
     .rules__modal {
         grid-template-areas: "heading button" "image image";
         padding: 1.75rem 3rem;
-        gap: 3.5rem;
         border-radius: 0.75rem;
         top: 50%;
         left: 50%;
@@ -60,3 +67,5 @@
         align-self: center;
     }
 }
+
+

@@ -81,143 +81,20 @@ body {
     position: relative;
 }
 
-/* Utilities */
-.flow > * + * {
-    margin-top: var(--flow-space);
-}
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
 
-/* Buttons */
-.btn {
-    font-size: var(--font-size-300);
-    display: block;
-    white-space: nowrap;
-    cursor: pointer;
-    padding: 0.75rem 1.75rem;
-    text-transform: uppercase;
-    letter-spacing: var(--letter-spacing-2);
-    font-weight: var(--font-weight-bold);
-    border-radius: 0.25rem;
-    transition: all 0.3s ease;
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }
-
-.btn--white {
-    background-color: var(--white);
-    color: var(--dark-grey);
-    border: 1px solid var(--white);
-}
-
-.btn--white:hover {
-    background-color: transparent;
-    color: var(--white);
-}
-
-.btn--dark {
-    background-color: transparent;
-    color: var(--white);
-    border: 1px solid var(--white);
-}
-
-.btn--dark:hover {
-    background-color: var(--white);
-    color: var(--dark-grey);
-    border: 1px solid transparent;
-}
-
-/* Layouts */
-.container {
-    margin-inline: auto;
-    padding-inline: 1rem;
-}
-
-/* Flex Layout */
-.flex {
-    display: flex;
-}
-
-.flex--gap {
-    gap: var(--gap);
-}
-
-.flex--center {
-    justify-content: center;
-    align-items: center;
-}
-
-.flex--justify-space-between {
-    justify-content: space-between;
-}
-
-.flex--justify-center {
-    justify-content: center;
-}
-
-.flex--align-center {
-    align-items: center;
-}
-
-.flex--column {
-    flex-direction: column;
-}
-
-/* Grid Layout */
-.grid {
-    display: grid;
-}
-
-.grid--items-center {
-    place-items: center;
-}
-
-.grid--content-center {
-    place-content: center;
-}
-
-.grid--gap {
-    gap: var(--gap);
-}
-
-/* Font Sizes */
-.font-size-600 {
-    font-size: var(--font-size-600);
-}
-
-.font-size-500 {
-    font-size: var(--font-size-500);
-}
-
-.font-size-400 {
-    font-size: var(--font-size-400);
-}
-
-.font-size-300 {
-    font-size: var(--font-size-300);
-}
-
-.font-size-200 {
-    font-size: var(--font-size-200);
-}
-
-.font-size-100 {
-    font-size: var(--font-size-100);
-}
-
-.font-weight-bold {
-    font-weight: var(--font-weight-bold);
-}
-
-/* Text Color */
-.text-dark-grey {
-    color: var(--dark-grey);
-}
-
-.text-dark-blue {
-    color: var(--dark-blue);
-}
-
-/* Backgrounds */
-.background-white {
-    background-color: var(--white);
-}
-
 
 
