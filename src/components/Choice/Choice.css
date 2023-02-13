@@ -1,4 +1,4 @@
-.game {
+.choice {
     grid-auto-columns: 1fr;
     grid-template-areas: 'paper scissors'
                         'rock rock';
@@ -9,7 +9,7 @@
     position: relative;
 }
 
-.game::before {
+.choice::before {
     content: '';
     inset: 0;
     position: absolute;
@@ -20,7 +20,7 @@
     z-index: -2;
 }
 
-.game__btn {
+.choice___btn {
     min-width: min(23.5vw, 9rem);
     min-height: min(23.5vw, 9rem);
     display: grid;
@@ -29,20 +29,20 @@
     border: none;
 }
 
-.game__btn:nth-child(1) {
+.choice___btn:nth-child(1) {
     grid-area: paper;
 }
 
-.game__btn:nth-child(2) {
+.choice___btn:nth-child(2) {
     grid-area: scissors;
 }
 
-.game__btn:nth-child(3) {
+.choice___btn:nth-child(3) {
     grid-area: rock;
     justify-self: center;
 }
 
-.game__btn::after {
+.choice___btn::after {
     content: '';
     position: absolute;
     background-color: rgba(255, 255, 255, 0.1);
@@ -52,16 +52,16 @@
     transition: all 0.3s ease;
 }
 
-.game__btn:hover::after {
+.choice___btn:hover::after {
     transform: scale(1.45);
 }
 
 /* Game Icon */
-.game__icon {
+.choice__icon {
     transition: all 0.3s ease;
 }
 
-.game__btn:hover .game__icon {
+.choice___btn:hover .choice__icon {
     transform: scale(1.10);
 }
 

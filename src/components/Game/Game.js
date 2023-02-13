@@ -1,6 +1,6 @@
-import GameChoice from './GameChoice';
+import Choice from '../Choice/Choice';
 import './Game.css';
-import GameResult from "./GameResult";
+import Result from "../Result/Result";
 import {useState} from "react";
 
 const Game = (props) => {
@@ -49,12 +49,12 @@ const Game = (props) => {
     return (
         <section className='game-section grid grid--content-center'>
             {!gameFinished && (
-                <GameChoice
+                <Choice
                     onChoice={setChoicesHandler}
                 />
             )}
             {gameFinished && (
-                <GameResult
+                <Result
                     userChoice={userChoice}
                     computerChoice={computerChoice}
                     result={result}

@@ -1,7 +1,7 @@
 import paperIcon from '../../assets/icon-paper.svg';
 import scissorsIcon from '../../assets/icon-scissors.svg';
 import rockIcon from '../../assets/icon-rock.svg';
-import './GameResult.css';
+import './Result.css';
 
 const icons = {
     paper: paperIcon,
@@ -9,7 +9,7 @@ const icons = {
     rock: rockIcon,
 }
 
-const GameResult = (props) => {
+const Result = (props) => {
     let userIconWrapperClass = `result__icon-wrapper icon-background icon-background--${props.userChoice}`;
     let computerIconWrapperClass = `result__icon-wrapper icon-background icon-background--${props.computerChoice}`;
 
@@ -49,4 +49,4 @@ const GameResult = (props) => {
     )
 };
 
-export default GameResult;
+export default Result;
