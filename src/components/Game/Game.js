@@ -3,45 +3,56 @@ import './Game.css';
 import Result from "../Result/Result";
 import {useState} from "react";
 
+const outcome = {
+    draw: {text: 'Draw', amount: 0},
+    win: {text: 'You Win', amount: 1},
+    lose: {text: 'You Lose', amount: -1},
+}
+
+const winAgainst = {
+    rock: 'scissors',
+    scissors: 'paper',
+    paper: 'rock',
+}
+
 const Game = (props) => {
     const [userChoice, setUserChoice] = useState('');
     const [computerChoice, setComputerChoice] = useState('');
     const [gameFinished, setGameFinished] = useState(false);
     const [result, setResult] = useState('');
-    const [resultText, setResultText] = useState('');
 
-    const checkResult = (choices) => {
-        const winConditions = [
-            ['rock', 'scissors'],
-            ['scissors', 'paper'],
-            ['paper', 'rock'],
-        ];
-
-        const userWins = winConditions.some(element => element.join('') === choices.join(''));
-
-        if (choices[0] === choices[1]) {
-            setResultText('Draw');
+    // Function for checking result
+    const checkResult = (userChoice, computerChoice) => {
+        if (userChoice === computerChoice) {
             return 'draw';
-        } else if (userWins) {
-            setResultText('You Win');
+        } else if (winAgainst[userChoice] === computerChoice) {
             return 'win';
         } else {
-            setResultText('You Lose');
             return 'lose';
         }
     }
 
     const setChoicesHandler = (userChoice, computerChoice) => {
+        // Setting user choice
         setUserChoice(userChoice);
+
+        // Setting computer choice
         setComputerChoice(computerChoice);
 
-        const gameResult = checkResult([userChoice, computerChoice]);
-        setResult(gameResult);
-        props.onGameFinish(gameResult);
+        // Calculating the Game Result
+        const gameResult = checkResult(userChoice, computerChoice);
 
+        // Setting the result to game result
+        setResult(gameResult);
+
+        // Passing the amount to scoreHandler function in App.js
+        props.scoreHandler(outcome[gameResult].amount);
+
+        // Setting the game finished to true
         setGameFinished(true);
     }
 
+    // Function for Play Again Button
     const playAgainHandler = () => {
         setGameFinished(false);
     }
@@ -58,7 +69,7 @@ const Game = (props) => {
                     userChoice={userChoice}
                     computerChoice={computerChoice}
                     result={result}
-                    resultText={resultText}
+                    resultText={outcome[result].text}
                     onPlayAgain={playAgainHandler}
                 />
             )}

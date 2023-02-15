@@ -8,18 +8,15 @@ function App() {
     const [score, setScore] = useState(0);
 
     // Score Handler for incrementing and decrementing scores
-    const scoreHandler = (result) => {
-        if (result === 'win') {
-            setScore(prevState => prevState + 1);
-        } else if (result === 'lose') {
-            setScore(prevState => prevState - 1);
-        }
+    const scoreHandler = (amount) => {
+        console.log(amount);
+        setScore(score => score + amount);
     };
 
     return (
         <div className='app'>
             <Header score={score} />
-            <Game onGameFinish={scoreHandler} />
+            <Game scoreHandler={scoreHandler} />
             <Rules/>
         </div>
     );
