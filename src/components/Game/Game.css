@@ -1,5 +1,6 @@
 .game-section {
     min-height: 60vh;
+    padding-block: 3rem;
 }
 
 /* Game and Result Backgrounds */
