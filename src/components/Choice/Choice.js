@@ -5,8 +5,9 @@ import './Choice.css';
 
 const Choice = (props) => {
     // Function for getting computer choice
+    const options = ['rock', 'paper', 'scissors'];
+
     const getComputerChoice = () => {
-        const options = ['rock', 'paper', 'scissors'];
         const random = Math.floor(Math.random() * 3);
         return options[random];
     }
@@ -16,7 +17,7 @@ const Choice = (props) => {
         const userChoice = event.target.closest('.choice___btn').dataset.choice;
         const computerChoice = getComputerChoice();
 
-        // Return user and computer choices to parent(Game)
+        // Return user and computer choices to parent(Game.js)
         props.onChoice(userChoice, computerChoice);
     }
 
