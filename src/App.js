@@ -9,7 +9,6 @@ function App() {
 
     // Score Handler for incrementing and decrementing scores
     const scoreHandler = (amount) => {
-        console.log(amount);
         setScore(score => score + amount);
     };
 
