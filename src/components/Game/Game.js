@@ -59,12 +59,11 @@ const Game = (props) => {
 
     return (
         <section className='game-section grid grid--content-center'>
-            {!gameFinished && (
+            {!gameFinished ? (
                 <Choice
                     onChoice={setChoicesHandler}
                 />
-            )}
-            {gameFinished && (
+            ) : (
                 <Result
                     userChoice={userChoice}
                     computerChoice={computerChoice}
