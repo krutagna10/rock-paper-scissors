@@ -1,7 +1,3 @@
-// import Header from "../../../rock-paper-scissors/src/components/Header/Header";
-// import Game from "../../../rock-paper-scissors/src/components/Game/Game";
-// import Rules from "../../../rock-paper-scissors/src/components/Rules/Rules";
-
 import Header from "./components/Header/Header";
 import Game from "./components/Game/Game";
 import Rules from "./components/Rules/Rules";
