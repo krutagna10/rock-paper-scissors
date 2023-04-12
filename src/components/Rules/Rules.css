@@ -1,0 +1,71 @@
+/* Overlay */
+.rules__overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Rules Modal */
+.rules__modal {
+    --gap: 3.5rem;
+
+    position: absolute;
+    z-index: 99;
+}
+
+@media (max-width: 47.99em) {
+    .rules__modal {
+        inset: 0;
+    }
+}
+
+.rules__modal-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.rules__btn {
+    position: absolute;
+    bottom: 5%;
+}
+
+@media (max-width: 47.99em) {
+    .rules__btn {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+@media (min-width: 48em) {
+    .rules__modal {
+        grid-template-areas: "heading button" "image image";
+        padding: 1.75rem 3rem;
+        border-radius: 0.75rem;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .rules__modal-heading {
+        grid-area: heading;
+        justify-self: start;
+    }
+
+    .rules__modal-image {
+        grid-area: image;
+    }
+
+    .rules__btn {
+        right: 2.5%;
+        transform: translateX(-2.5%);
+    }
+
+    .rules__modal-btn {
+        grid-area: button;
+        justify-self: end;
+        align-self: center;
+    }
+}
+
+

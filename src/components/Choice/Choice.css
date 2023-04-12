@@ -1,0 +1,72 @@
+.choice {
+    grid-auto-columns: 1fr;
+    grid-template-areas: 'paper scissors'
+                        'rock rock';
+
+
+    column-gap: clamp(3rem, 7vw, 8rem);
+    row-gap: clamp(1rem, 4vw, 3rem);
+    position: relative;
+}
+
+.choice::before {
+    content: '';
+    inset: 0;
+    position: absolute;
+    background-image: url('/src/assets/bg-triangle.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 75%;
+    z-index: -2;
+}
+
+.choice___btn {
+    min-width: min(23.5vw, 9rem);
+    min-height: min(23.5vw, 9rem);
+    display: grid;
+    place-content: center;
+    cursor: pointer;
+    border: none;
+}
+
+.choice___btn:nth-child(1) {
+    grid-area: paper;
+}
+
+.choice___btn:nth-child(2) {
+    grid-area: scissors;
+}
+
+.choice___btn:nth-child(3) {
+    grid-area: rock;
+    justify-self: center;
+}
+
+.choice___btn::after {
+    content: '';
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.1);
+    z-index: -2;
+    inset: 0;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.choice___btn:hover::after {
+    transform: scale(1.45);
+}
+
+/* Game Icon */
+.choice__icon {
+    transition: all 0.3s ease;
+}
+
+.choice___btn:hover .choice__icon {
+    transform: scale(1.10);
+}
+
+
+
+
+
+
