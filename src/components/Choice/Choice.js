@@ -1,7 +1,7 @@
-import "./Choice.css";
-import rockIcon from "../../assets/icon-rock.svg";
-import scissorsIcon from "../../assets/icon-scissors.svg";
 import paperIcon from "../../assets/icon-paper.svg";
+import scissorsIcon from "../../assets/icon-scissors.svg";
+import rockIcon from "../../assets/icon-rock.svg";
+import "./Choice.css";
 
 const Choice = (props) => {
   // Function for getting computer choice
