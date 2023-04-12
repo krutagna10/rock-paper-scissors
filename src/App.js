@@ -1,24 +1,12 @@
-import Header from './components/Header/Header'
-import Game from './components/Game/Game';
-import Rules from './components/Rules/Rules';
-
-import {useState} from "react";
+import Choice from "./components/Choice/Choice";
 
 function App() {
-    const [score, setScore] = useState(0);
-
-    // Score Handler for incrementing and decrementing scores
-    const scoreHandler = (amount) => {
-        setScore(score => score + amount);
-    };
-
-    return (
-        <div className='app'>
-            <Header score={score} />
-            <Game scoreHandler={scoreHandler} />
-            <Rules/>
-        </div>
-    );
+  return (
+    <div className="app">
+      <h1>Tic Tac Toe Game</h1>
+      <Choice />
+    </div>
+  );
 }
 
 export default App;

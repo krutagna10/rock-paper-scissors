@@ -1,253 +1,270 @@
 /* Variables*/
 :root {
-    /* Colors */
-    --scissors-gradient: linear-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
-    --paper-gradient: linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
-    --rock-gradient: linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
-    --yellow: 39, 89%, 49%;
-    --blue: 230, 89%, 62%;
-    --red: 349, 71%, 52%;
+  /* Colors */
+  --scissors-gradient: linear-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+  --paper-gradient: linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+  --rock-gradient: linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+  --yellow: 39, 89%, 49%;
+  --blue: 230, 89%, 62%;
+  --red: 349, 71%, 52%;
 
-    --cyan: linear-gradient(hsl(189, 59%, 53%), hsl(189, 58%, 57%));
-    --dark-grey: hsl(229, 25%, 31%);
-    --dark-blue: hsl(229, 64%, 46%);
-    --header-outline: hsl(217, 16%, 45%);
-    --radial-gradient: linear-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
-    --white: #fff;
+  --cyan: linear-gradient(hsl(189, 59%, 53%), hsl(189, 58%, 57%));
+  --dark-grey: hsl(229, 25%, 31%);
+  --dark-blue: hsl(229, 64%, 46%);
+  --header-outline: hsl(217, 16%, 45%);
+  --radial-gradient: linear-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+  --white: #fff;
 
-    /* Typography */
-    --font-barlow-semi: 'Barlow Semi Condensed', sans-serif;
+  /* Typography */
+  --font-barlow-semi: "Barlow Semi Condensed", sans-serif;
 
-    --font-size-600: 2.5rem;
-    --font-size-500: 2.25rem;
-    --font-size-400: 2rem;
-    --font-size-300: 1rem;
-    --font-size-200: 0.9375rem;
-    --font-size-100: 0.75rem;
+  --font-size-600: 2.5rem;
+  --font-size-500: 2.25rem;
+  --font-size-400: 2rem;
+  --font-size-300: 1rem;
+  --font-size-200: 0.9375rem;
+  --font-size-100: 0.75rem;
 
-    --font-weight-semi-bold: 600;
-    --font-weight-bold: 700;
+  --font-weight-semi-bold: 600;
+  --font-weight-bold: 700;
 
-    /* Letter Spacing */
-    --letter-spacing-1: 0.15625em;
-    --letter-spacing-2: 0.1875em;
+  /* Letter Spacing */
+  --letter-spacing-1: 0.15625em;
+  --letter-spacing-2: 0.1875em;
 
-    /* Spacing */
-    --flow-space: 1rem;
-    --gap: 1rem;
+  /* Spacing */
+  --flow-space: 1rem;
+  --gap: 1rem;
 }
 
 @media (min-width: 48em) {
-    :root {
-        --font-size-600: 4rem;
-        --font-size-500: 3.5rem;
-        --font-size-200: 1.5rem;
-        --font-size-100: 1rem;
-    }
+  :root {
+    --font-size-600: 4rem;
+    --font-size-500: 3.5rem;
+    --font-size-200: 1.5rem;
+    --font-size-100: 1rem;
+  }
 }
 
 /* Reset */
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  /*margin: 0;*/
+  /*padding: 0;*/
 }
 
 img,
 picture {
-    display: block;
-    max-width: 100%;
+  display: block;
+  max-width: 100%;
 }
 
 button,
 input {
-    font: inherit;
+  font: inherit;
 }
 
 html {
-    scroll-behavior: smooth;
-    overflow-x: hidden;
-    width: 100%;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body {
-    font-family: var(--font-barlow-semi);
-    background: var(--radial-gradient);
-    font-weight: var(--font-weight-semi-bold);
-    min-height: 100vh;
-    line-height: 1.5;
-    color: var(--white);
-    text-transform: uppercase;
-    position: relative;
+  font-family: var(--font-barlow-semi);
+  /*background: var(--radial-gradient);*/
+  font-weight: var(--font-weight-semi-bold);
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  line-height: 1.5;
+  /*color: var(--white);*/
+  text-transform: uppercase;
+  position: relative;
 }
 
 /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
-    html:focus-within {
-        scroll-behavior: auto;
-    }
+  html:focus-within {
+    scroll-behavior: auto;
+  }
 
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-    }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 /* Utilities */
 .flow > * + * {
-    margin-top: var(--flow-space);
+  margin-top: var(--flow-space);
 }
 
 /* Container */
 .container {
-    margin-inline: auto;
-    padding-inline: 1rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
 }
 
 /* Screen Reader Only */
 .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    /* added line */
-    border: 0;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  /* added line */
+  border: 0;
 }
 
 /* Buttons */
 .btn {
-    font-size: var(--font-size-300);
-    display: block;
-    white-space: nowrap;
-    cursor: pointer;
-    padding: 0.75rem 1.75rem;
-    text-transform: uppercase;
-    letter-spacing: var(--letter-spacing-2);
-    font-weight: var(--font-weight-bold);
-    border-radius: 0.25rem;
-    transition: all 0.3s ease;
+  font-size: var(--font-size-300);
+  display: block;
+  white-space: nowrap;
+  cursor: pointer;
+  padding: 0.75rem 1.75rem;
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-2);
+  font-weight: var(--font-weight-bold);
+  border-radius: 0.25rem;
+  transition: all 0.3s ease;
 }
 
 .btn--white {
-    background-color: var(--white);
-    color: var(--dark-grey);
-    border: 1px solid var(--white);
+  background-color: var(--white);
+  color: var(--dark-grey);
+  border: 1px solid var(--white);
 }
 
 .btn--white:hover {
-    background-color: transparent;
-    color: var(--white);
+  background-color: transparent;
+  color: var(--white);
 }
 
 .btn--dark {
-    background-color: transparent;
-    color: var(--white);
-    border: 1px solid var(--white);
+  background-color: transparent;
+  color: var(--white);
+  border: 1px solid var(--white);
 }
 
 .btn--dark:hover {
-    background-color: var(--white);
-    color: var(--dark-grey);
-    border: 1px solid transparent;
+  background-color: var(--white);
+  color: var(--dark-grey);
+  border: 1px solid transparent;
 }
 
 /* Flex Layout */
 .flex {
-    display: flex;
+  display: flex;
 }
 
 .flex--gap {
-    gap: var(--gap);
+  gap: var(--gap);
 }
 
 .flex--center {
-    justify-content: center;
-    align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .flex--justify-space-between {
-    justify-content: space-between;
+  justify-content: space-between;
 }
 
 .flex--justify-center {
-    justify-content: center;
+  justify-content: center;
 }
 
 .flex--align-center {
-    align-items: center;
+  align-items: center;
 }
 
 .flex--column {
-    flex-direction: column;
+  flex-direction: column;
 }
 
 /* Grid Layout */
 .grid {
-    display: grid;
+  display: grid;
 }
 
 .grid--items-center {
-    place-items: center;
+  place-items: center;
 }
 
 .grid--content-center {
-    place-content: center;
+  place-content: center;
 }
 
 .grid--gap {
-    gap: var(--gap);
+  gap: var(--gap);
 }
 
 /* Font Sizes */
 .font-size-600 {
-    font-size: var(--font-size-600);
+  font-size: var(--font-size-600);
 }
 
 .font-size-500 {
-    font-size: var(--font-size-500);
+  font-size: var(--font-size-500);
 }
 
 .font-size-400 {
-    font-size: var(--font-size-400);
+  font-size: var(--font-size-400);
 }
 
 .font-size-300 {
-    font-size: var(--font-size-300);
+  font-size: var(--font-size-300);
 }
 
 .font-size-200 {
-    font-size: var(--font-size-200);
+  font-size: var(--font-size-200);
 }
 
 .font-size-100 {
-    font-size: var(--font-size-100);
+  font-size: var(--font-size-100);
 }
 
 .font-weight-bold {
-    font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-bold);
 }
 
 /* Text Color */
 .text-dark-grey {
-    color: var(--dark-grey);
+  color: var(--dark-grey);
 }
 
 .text-dark-blue {
-    color: var(--dark-blue);
+  color: var(--dark-blue);
 }
 
 /* Backgrounds */
 .background-white {
-    background-color: var(--white);
+  background-color: var(--white);
 }
 
+table {
+  width: 100%;
+  text-align: center;
+  margin-top: 1.5rem;
+}
 
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
 
+th,
+td {
+  padding: 1rem;
+}
